@@ -100,7 +100,7 @@ class Chef
         begin
           @run_id = uuid
         rescue LoadError
-          Chef::Log.debug("Can't load uuidtools - disabling resource_reporter")
+          Chef::Log.debug("Can't load SecureRandom - disabling resource_reporter")
           @reporting_enabled = false
         end
         @rest_client = rest_client
