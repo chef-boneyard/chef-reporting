@@ -1,5 +1,4 @@
 #
-# Author:: James Casey (<james@opscode.com>)
 # Copyright:: Copyright (c) 2013 Opscode, Inc.
 # License:: Apache License, Version 2.0
 #
