@@ -17,6 +17,9 @@
 #
 
 require 'chef/handler'
+require 'chef/rest'
+require 'chef/version_constraint'
+
 
 class Chef
   class Reporting
@@ -29,16 +32,18 @@ class Chef
       end
 
       def report
-        Chef::Log.error("Enabling Reporting Handler")
-        @rest = Chef::REST.new(config[:chef_server_url], config[:node_name], config[:client_key])
+        version_checker = Chef::VersionConstraint.new("< 11.6.0")
+        if version_checker.include?(Chef::VERSION)
+          Chef::Log.info("Enabling backported resource reporting Handler")
+          rest = Chef::REST.new(Chef::Config[:chef_server_url], @run_status.node.name, Chef::Config[:client_key])
+          resource_reporter = Chef::Reporting::ResourceReporter.new(rest)
+          @run_status.events.register(resource_reporter)
 
-        # TODO - This doesn't work since it's too late
-        @resource_reporter = Chef::Reporting::ResourceReporter.new(@rest)
-        Chef::Config[:event_handlers] << @resource_reporter
-
-        Chef::Config
+          resource_reporter.run_started(@run_status)
+        else
+          Chef::Log.debug("Chef Version already has new Resource Reporter - skipping startup of backport version")
+        end
       end
-
     end
   end
 end
