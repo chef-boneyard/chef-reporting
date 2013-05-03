@@ -1,19 +1,20 @@
-$:.unshift(File.dirname(__FILE__) + '/lib')
-require 'chef/version'
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'chef_reporting/version'
 
-Gem::Specification.new do |s|
-  s.name = 'chef-reporting'
-  s.version = "0.1.0"
-  s.platform = Gem::Platform::RUBY
-  s.extra_rdoc_files = ["README.md", "LICENSE" ]
-  s.summary = "Plugin to enable reporting for Chef"
-  s.description = s.summary
-  s.author = "James Casey"
-  s.email = "james@opscode.com"
-  s.homepage = "http://docs.opscode.com"
+Gem::Specification.new do |gem|
+  gem.name = 'chef-reporting'
+  gem.version = Chef::Reporting::VERSION
+  gem.license = "Apache 2.0"
+  gem.author = "Opscode"
+  gem.email = "info@opscode.com"
+  gem.description = "Backport of Chef Reporting handler for Chef < 11.6.0"
+  gem.summary = gem.description
+  gem.homepage = "https://github.com/opscode/chef-reporting"
+
+  gem.files = `git ls-files`.split($/)
+  gem.require_paths = ["lib"]
 
   # TODO - Can we relax this dependency
-  s.add_dependency "chef", ">= 11.4.0"
-  s.files = %w(LICENSE README.md) + Dir.glob("lib/**/*")
-  s.require_paths = ["lib"]
+  gem.add_dependency "chef", ">= 11.0.0"
 end
