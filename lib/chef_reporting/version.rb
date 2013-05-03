@@ -1,5 +1,5 @@
 #
-# Copyright:: Copyright (c) 2013 Opscode, Inc.
+# Copyright:: Copyright (c) 2012 Opscode, Inc.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,5 +15,9 @@
 # limitations under the License.
 #
 
-require 'chef_reporting/start_handler'
-require 'chef_reporting/resource_reporter'
+module Chef
+  module Reporting
+    VERSION = "0.1.0"
+  end
+end
+
