@@ -15,6 +15,5 @@ Gem::Specification.new do |gem|
   gem.files = `git ls-files`.split($/)
   gem.require_paths = ["lib"]
 
-  # TODO - Can we relax this dependency
-  gem.add_dependency "chef", ">= 11.0.0"
+  gem.add_dependency "chef", ">= 10.18.0"
 end
