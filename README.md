@@ -53,7 +53,7 @@ handler.  Copy the following block to the top of your `client.rb`.
 
 ```ruby
 begin
-  require chef_reporting
+  require 'chef_reporting'
   start_handlers << Chef::Reporting::StartHandler.new()
 rescue LoadError
   Chef::Log.warn "Failed to load #{lib}. This should be resolved after a chef run."
