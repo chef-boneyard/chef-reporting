@@ -64,7 +64,7 @@ class Chef
             #as_hash["result"] = "failed"
           end
           as_hash["cookbook_name"] = new_resource.cookbook_name
-          as_hash["cookbook_version"] = new_resource.cookbook_version.version
+          as_hash["cookbook_version"] = new_resource.cookbook_version ? new_resource.cookbook_version.version : "0.0.0"
           as_hash
         end
 
