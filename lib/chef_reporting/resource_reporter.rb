@@ -1,7 +1,7 @@
 #
 # Author:: Daniel DeLeo (<dan@opscode.com>)
 # Author:: Prajakta Purohit (prajakta@opscode.com>)
-# Auther:: Tyler Cloke (<tyler@opscode.com>)
+# Author:: Tyler Cloke (<tyler@opscode.com>)
 #
 # Copyright:: Copyright (c) 2012-13 Opscode, Inc.
 # License:: Apache License, Version 2.0
