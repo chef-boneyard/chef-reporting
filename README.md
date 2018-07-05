@@ -2,6 +2,9 @@
 
 ## Overview
 
+This gem was used for versions of Chef older than 11.6.0, which are no
+longer supported. Archiving.
+
 This gem contains an event handler for Chef that allows older (< 11.6.0)
 version of chef to publish reporting information to Opscode Hosted Chef
 or Opscode Private Chef.
